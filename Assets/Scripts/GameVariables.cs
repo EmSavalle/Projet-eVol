@@ -8,6 +8,7 @@ public class GameVariables : MonoBehaviour {
     public int speed;
     public int generation;
     public Environnement[] env;
+    public int envActu;
     public GameObject prefabPanelOiseau;
 
 }

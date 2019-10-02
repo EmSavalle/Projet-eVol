@@ -25,7 +25,6 @@ public class Affichage : FSystem
         if (e)
         {
              t = Convert.ToString(e.name) + "  :  Population de" + Convert.ToString(e.population) + "oiseaux \n";
-            Debug.Log(e.name);
         }
         else
         {
@@ -37,7 +36,6 @@ public class Affichage : FSystem
         GameObject genCnt = GameObject.Find("GenCounter");
         if (_player.Count>0)
         {
-            Debug.Log(_player.Count);
             genCnt.GetComponent<Text>().text = "Génération : " + Convert.ToString(_player.First().GetComponentInChildren<GameVariables>().generation);
         }
     }

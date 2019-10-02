@@ -25,7 +25,6 @@ public class SceneLoaderSystem : FSystem {
 
     public void onLoadGame()
     {
-        Debug.Log("Test");
         GameObjectManager.loadScene(1);
 
     }

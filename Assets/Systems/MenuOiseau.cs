@@ -11,23 +11,17 @@ public class MenuOiseau : FSystem
     public GameObject canvas;
     public GameObject menu;
     public GameObject panel;
+    public bool started = false;
     public int menuMoveDistance = 5;
     public int nbEspece = 0;
     public float widthPanel = 0;
     public List<GameObject> listOiseauPanel = new List<GameObject>();
     public GameObject OiseauPanelBluePrint;
+    public Vector3 initPositionPanel;
     private Family _espece = FamilyManager.getFamily(new AllOfComponents(typeof(Espece)));
     private Family _player = FamilyManager.getFamily(new AllOfComponents(typeof(GameVariables)));
     public MenuOiseau()
     {
-        instance = this;
-        panel = GameObject.Find("PanelOiseau");
-        OiseauPanelBluePrint = _player.First().GetComponent<GameVariables>().prefabPanelOiseau;
-        canvas = GameObject.Find("Canvas");
-        menu = canvas.GetComponentInChildren<PanelScript>(true).gameObject;
-        widthPanel = ((RectTransform)OiseauPanelBluePrint.transform).rect.width;
-        Debug.Log("Width");
-        Debug.Log(widthPanel);
     }
     public int move;
 
@@ -46,6 +40,21 @@ public class MenuOiseau : FSystem
     // Use to process your families.
     protected override void onProcess(int familiesUpdateCount)
     {
+        if (!started)
+        {
+            instance = this;
+            panel = GameObject.Find("PanelOiseau");
+            OiseauPanelBluePrint = _player.First().GetComponent<GameVariables>().prefabPanelOiseau;
+            canvas = GameObject.Find("Canvas");
+            menu = canvas.GetComponentInChildren<PanelScript>(true).gameObject;
+
+            //widthPanel = ((RectTransform)OiseauPanelBluePrint.transform).rect.width;
+            widthPanel = 6;
+            Debug.Log("Width");
+            Debug.Log(widthPanel);
+            started = true;
+            initPositionPanel = new Vector3(-(GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.x/2), -(GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.y / 2), 0);
+        }
         if(nbEspece < _espece.Count)
         {
             updateMenu();
@@ -66,7 +75,11 @@ public class MenuOiseau : FSystem
         {
             GameObject g = GameObject.Instantiate(OiseauPanelBluePrint, GameObject.FindGameObjectWithTag("PanelOiseau").transform);
 
-            g.transform.position = new Vector3(widthPanel * i /*+ i * 2*/, 0, 0);// - GameObject.FindGameObjectWithTag("PanelOiseau").transform.position;
+            g.transform.position = initPositionPanel;
+            g.transform.Translate(new Vector3(widthPanel * i, 0, 0));
+            Debug.Log("X pos");
+            Debug.Log(g.transform.position.x);
+            Debug.Log(widthPanel * i - (GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.x / 2));
             foreach (Text t in g.GetComponentsInChildren<Text>())
             {
                 if(t.name == "BirdName")

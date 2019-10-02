@@ -83,8 +83,5 @@ public class GestionEnvironnement : FSystem
             }
         }
         esp.population = Convert.ToInt64(esp.population * rate);
-        Debug.Log("Rate / Pop");
-        Debug.Log(rate);
-        Debug.Log(esp.population);
     }
 }
