@@ -19,19 +19,7 @@ public class Affichage : FSystem
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-        GameObject text = GameObject.Find("Affichage");
-        Espece e = _especes.First().GetComponent<Espece>();
-        string t = "";
-        if (e)
-        {
-             t = Convert.ToString(e.name) + "  :  Population de" + Convert.ToString(e.population) + "oiseaux \n";
-        }
-        else
-        {
-            t = "";
-        }
-        
-        text.GetComponent<Text>().text = t;
+        Espece e = _especes.First().GetComponent<Espece>(); 
 
         GameObject genCnt = GameObject.Find("GenCounter");
         if (_player.Count>0)

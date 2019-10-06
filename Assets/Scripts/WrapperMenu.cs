@@ -9,14 +9,18 @@ public class WrapperMenu : MonoBehaviour {
         SceneLoaderSystem.instance.onLoadGame();
 		
 	}
-    public void onOpenMenu()
+    public void onMenuClick()
+    {
+        MenuOiseau.instance.onMenuClick();
+    }
+    /*public void onOpenMenu()
     {
         MenuOiseau.instance.onOpenMenu();
     }
     public void onCloseMenu()
     {
         MenuOiseau.instance.onCloseMenu();
-    }
+    }*/
     public void onMovingMenuLeft()
     {
         MenuOiseau.instance.moveMenuLeft();
@@ -24,5 +28,13 @@ public class WrapperMenu : MonoBehaviour {
     public void onMovingMenuRight()
     {
         MenuOiseau.instance.moveMenuRight();
+    }
+    public void closeDetailMenu()
+    {
+        MenuOiseau.instance.closeDetailMenu();
+    }
+    public void openDetailMenu()
+    {
+        MenuOiseau.instance.openDetailMenu(GetComponentInParent<ContainerEspece>().oiseau);
     }
 }

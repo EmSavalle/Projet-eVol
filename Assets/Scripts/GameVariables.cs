@@ -10,5 +10,6 @@ public class GameVariables : MonoBehaviour {
     public Environnement[] env;
     public int envActu;
     public GameObject prefabPanelOiseau;
+    public GameObject prefabPanelOiseauDetail;
 
 }
