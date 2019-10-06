@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224683620874946808}
   - component: {fileID: 222593613922443598}
   - component: {fileID: 114533486264877294}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: TextEnvironnement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224133730667489894}
   - component: {fileID: 222619586480475998}
   - component: {fileID: 114507694458282404}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: TextName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 224020308717886540}
   - component: {fileID: 222058970042385914}
   - component: {fileID: 114795891823266546}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224791514859334350}
   - component: {fileID: 222347149195616538}
   - component: {fileID: 114448262337309806}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 114690792255422326}
   - component: {fileID: 114070947256473062}
   - component: {fileID: 114195899138479394}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 224203959018654630}
   - component: {fileID: 222275880185431454}
   - component: {fileID: 114806823109275340}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: PanelDetailOiseau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 224681939656815990}
   - component: {fileID: 222404136204408406}
   - component: {fileID: 114568185096013328}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: TextCaractere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 224679495796325286}
   - component: {fileID: 222403940890667286}
   - component: {fileID: 114689971353642730}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: TextPopulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,14 +455,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.9766185, a: 0.392}
-  m_RaycastTarget: 1
+  m_Color: {r: 0, g: 1, b: 0.99077415, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -589,7 +589,7 @@ RectTransform:
   m_GameObject: {fileID: 1436775021742012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9485618, y: 0.9485618, z: 0.9485618}
   m_Children:
   - {fileID: 224791514859334350}
   - {fileID: 224133730667489894}
@@ -602,8 +602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -673.3, y: 0}
-  m_SizeDelta: {x: -1346.5, y: 0}
+  m_AnchoredPosition: {x: -10.01001, y: -1.7700043}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224679495796325286
 RectTransform:

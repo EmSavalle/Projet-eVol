@@ -103,33 +103,35 @@ public class MenuOiseau : FSystem
     }
     public void openDetailMenu(Espece e)
     {
-        panelDetail = GameObject.Instantiate(OiseauPanelBluePrintDetail, canvas.transform);
-        panelDetail.transform.position = new Vector3(-(canvas.transform.position.x / 2), -(canvas.transform.position.y / 2), 0); ;
-        foreach (Text t in panelDetail.GetComponentsInChildren<Text>())
-        {
-            if (t.name == "TextName")
+        if(panelDetail == null) { 
+            panelDetail = GameObject.Instantiate(OiseauPanelBluePrintDetail, canvas.transform);
+            panelDetail.transform.position = new Vector3(-(canvas.transform.position.x / 2), -(canvas.transform.position.y / 2), 0); ;
+            foreach (Text t in panelDetail.GetComponentsInChildren<Text>())
             {
-                t.text = "Name : " + e.name;
-            }
-            if (t.name == "TextPopulation")
-            {
-                t.text = "Population : " + Convert.ToString(e.population);
-            }
-            if (t.name == "TextEnvironnement")
-            {
-                t.text = "Environnement :  a remplir";
-            }
-            if(t.name == "TextCaractere")
-            {
-                string str = "Caractere : \n";
-                foreach(Caractere c in e.caractere)
+                if (t.name == "TextName")
                 {
-                    str += "-" + c.name+"\n";
-                    str += "\t Type : " +c.type + "\n";
-                    str += "\t Facteur : " + Convert.ToString(c.facteur) + "\n"; 
-                    str += "\t Propagation dans l'espece : " + Convert.ToString(c.pourcentagePopulation) + "\n";
+                    t.text = "Name : " + e.name;
                 }
-                t.text = str;
+                if (t.name == "TextPopulation")
+                {
+                    t.text = "Population : " + Convert.ToString(e.population);
+                }
+                if (t.name == "TextEnvironnement")
+                {
+                    t.text = "Environnement :  a remplir";
+                }
+                if(t.name == "TextCaractere")
+                {
+                    string str = "Caractere : \n";
+                    foreach(Caractere c in e.caractere)
+                    {
+                        str += "-" + c.name+"\n";
+                        str += "\t Type : " +c.type + "\n";
+                        str += "\t Facteur : " + Convert.ToString(c.facteur) + "\n"; 
+                        str += "\t Propagation dans l'espece : " + Convert.ToString(c.pourcentagePopulation) + "\n";
+                    }
+                    t.text = str;
+                }
             }
         }
     }
@@ -152,6 +154,7 @@ public class MenuOiseau : FSystem
     public void onOpenMenu()
     {
         menu.SetActive(true);
+        updateMenu();
     }
     public void onCloseMenu()
     {
