@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 222347149195616538}
   - component: {fileID: 114448262337309806}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageOiseau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

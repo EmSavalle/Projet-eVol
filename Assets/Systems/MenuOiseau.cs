@@ -13,6 +13,7 @@ public class MenuOiseau : FSystem
     public GameObject panel;
     public GameObject panelDetail;
     public bool started = false;
+    public bool startedMenu = false;
     public int menuMoveDistance = 5;
     public int nbEspece = 0;
     public float widthPanel = 0;
@@ -60,7 +61,11 @@ public class MenuOiseau : FSystem
         }
         if (g)
         {
-            initPositionPanel = new Vector3(-(GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.x / 2), -(GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.y / 2), 0);
+            if (!startedMenu)
+            {
+                initPositionPanel = new Vector3(-(GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.x / 2), -(GameObject.FindGameObjectWithTag("PanelOiseau").transform.position.y / 2), 0);
+                startedMenu = true;
+            }
             if (nbEspece < _espece.Count)
             {            
                 updateMenu();
@@ -83,7 +88,7 @@ public class MenuOiseau : FSystem
             GameObject g = GameObject.Instantiate(OiseauPanelBluePrint, GameObject.FindGameObjectWithTag("PanelOiseau").transform);
 
             g.transform.position = initPositionPanel;
-            g.transform.Translate(new Vector3(widthPanel * i, 0, 0));
+            g.transform.Translate(new Vector3(widthPanel * (i-1), 0, 0));
             g.GetComponent<ContainerEspece>().oiseau = _espece.getAt(i).GetComponent<Espece>();
             foreach (Text t in g.GetComponentsInChildren<Text>())
             {
@@ -96,6 +101,17 @@ public class MenuOiseau : FSystem
                     t.text = "Population : " + Convert.ToString(_espece.getAt(i).GetComponent<Espece>().population);
                 }
             }
+            if (_espece.getAt(i).GetComponent<Espece>().sprite != null)
+            {
+                foreach(Image im in g.GetComponentsInChildren<Image>())
+                {
+                    if(im.name == "ImageOiseau")
+                    {
+                        im.sprite = _espece.getAt(i).GetComponent<Espece>().sprite;
+                    }
+                }
+                    
+            }
             listOiseauPanel.Add(g);
 
         }
@@ -105,7 +121,16 @@ public class MenuOiseau : FSystem
     {
         if(panelDetail == null) { 
             panelDetail = GameObject.Instantiate(OiseauPanelBluePrintDetail, canvas.transform);
-            panelDetail.transform.position = new Vector3(-(canvas.transform.position.x / 2), -(canvas.transform.position.y / 2), 0); ;
+            panelDetail.transform.position = new Vector3(-(canvas.transform.position.x / 2), -(canvas.transform.position.y / 2), 0);
+            if(e.sprite != null) {
+                foreach (Image im in panelDetail.GetComponentsInChildren<Image>())
+                {
+                    if (im.name == "ImageOiseau")
+                    {
+                        im.sprite = e.sprite;
+                    }
+                }
+            }
             foreach (Text t in panelDetail.GetComponentsInChildren<Text>())
             {
                 if (t.name == "TextName")
